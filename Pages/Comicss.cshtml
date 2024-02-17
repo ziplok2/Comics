@@ -1,0 +1,14 @@
+﻿@page
+@model Comics.Pages.ComicssModel
+@{
+}
+
+<form method="post">
+    <p>ID: @Model?.comics?.ID</p>
+    <label for="Первый пользователь">Имя пользователя</label>
+    <input asp-for="comics.Name" type="text" id="Name" name="Name"><span asp-validation-for="Name"></span>
+    <h1></h1>
+    <label for="Email">e-mail</label>
+    <input asp-for="comics.Email" type="text" id="Email" name="Email"><span asp-validation-for="Email"></span>
+    <button type="submit">Сохранить</button>
+</form>

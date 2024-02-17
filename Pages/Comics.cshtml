@@ -1,0 +1,27 @@
+﻿@page
+@model Comics.Pages.ComicsModel
+@{
+    ViewData["Title"] = "Users page";
+}
+
+<h1>Страница Пользователи</h1>
+<a asp-page="EditUser" class="btn btn-primary stretched-link">Создать</a>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>e-mail</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.comics)
+        {
+            <tr>
+                <td><a href="EditUser?id=" +@user.Id>@user.ID</a></td>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
