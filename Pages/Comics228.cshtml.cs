@@ -15,6 +15,7 @@ namespace Comics.Pages
         public IActionResult OnGet()
         {
             comics = Icomics.GetAll();
+            if (comics == null) return NotFound();
             return Page();
         }
     }
