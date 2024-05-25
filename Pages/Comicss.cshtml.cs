@@ -18,7 +18,7 @@ namespace Comics.Pages
 
         public IActionResult OnGet(int id)
         {
-            comics = icomics.Get(id);
+            comics = icomics.GetComicsById(id);
             comics = new();
             return Page();
         }
@@ -26,7 +26,7 @@ namespace Comics.Pages
         public IActionResult OnPost(Comics.Model.Comics userForm)
         {
 
-            var comicDB = icomics.Update(userForm);
+            var comicDB = icomics.UpdateUser(userForm);
             if (comicDB == null) return NotFound();
             return Page();
         }

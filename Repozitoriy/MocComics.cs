@@ -8,10 +8,12 @@ namespace Comics.Repozitoriy
 
         public MocComics()
         {
-            _comics ??= new List<Model.Comics> ();
-            _comics.Add(new() { ID = 1, Name = "Удивительный человек-пак", Year = 1984});
+            _comics ??= new List<Model.Comics>();
+            List<Subject> subjectGrade = new();
+            _comics.Add(new() { ID = 1, Name = "Удивительный человек-паук", Year = 1984});
             _comics.Add(new() { ID = 2, Name = "Россомаха", Year = 1989 });
             _comics.Add(new() { ID = 3, Name = "Халк", Year = 1995 });
+            
         }
 
         Comics.Model.Comics Icomics.Add(Comics.Model.Comics comic)
@@ -26,9 +28,9 @@ namespace Comics.Repozitoriy
             return comicBD;
         }   
             
-        Comics.Model.Comics Icomics.Get(int ID)
+        Comics.Model.Comics? Icomics.GetComicsById(int id)
         {
-            return _comics.Where(u => u.ID == ID).ToList().FirstOrDefault();
+            return _comics.Where(u => u.ID == id).ToList().FirstOrDefault();
         }
 
        List<Comics.Model.Comics> Icomics.GetAll()
@@ -36,7 +38,7 @@ namespace Comics.Repozitoriy
             return _comics;
         }
 
-        Comics.Model.Comics Icomics.Update(Comics.Model.Comics comics)
+        Comics.Model.Comics Icomics.UpdateUser(Comics.Model.Comics comics)
         {
             var comicBD = _comics.Where(u => u.ID == comics.ID).ToList().FirstOrDefault();
             if (comicBD != null) 

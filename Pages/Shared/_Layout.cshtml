@@ -25,9 +25,27 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Comics228">Comics</a>
+                        </li>
                     </ul>
-                </div>
-            </div>
+
+
+                </div class="text-right ml-auto mr-3">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form asp-controller="Account" asp-action="Logout" method="post" class="form-inline">
+                        <span class="navbar-text mr-3">Привет, @User.Identity.Name!</span>
+                        <button type="submit" class="btn btn-link text-dark">Выход</button>
+                    </form>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-link text-dark">Вход</a>
+                }   
+               </div>
+              </div>
+             </div>
         </nav>
     </header>
     <div class="container">
@@ -45,7 +63,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
+    <partial name="_ValidationScriptsPartial" />
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

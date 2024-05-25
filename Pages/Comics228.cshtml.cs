@@ -6,9 +6,9 @@ namespace Comics.Pages
 {
     public class ComicsModel : PageModel
     {
-        public ComicsModel(Icomics Icomics1) 
+        public ComicsModel(Icomics icomics) 
         {
-            Icomics1 = Icomics;
+            Icomics = icomics;
         }
         private Icomics Icomics;
         public List<Comics.Model.Comics> comics { get; set; }
